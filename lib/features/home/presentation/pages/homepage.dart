@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_ip_test/core/app_info.dart';
 import 'package:my_ip_test/core/core_elements/core_widgets.dart';
+import 'package:my_ip_test/core/developr_info.dart';
 import 'package:my_ip_test/core/resources/app_progress_indicator.dart';
 import 'package:my_ip_test/core/resources/app_text_styles.dart';
 import 'package:my_ip_test/core/resources/app_texts.dart';
@@ -66,6 +67,10 @@ class _HomePageState extends State<HomePage> {
                 style: AppTextStyles.homepageAppName);
       });
 
+  Widget widgetDeveloperInfo() => Column(children: [
+    Text('by ${AppDeveloperInfo.fullName}')
+  ]);
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -81,7 +86,7 @@ class _HomePageState extends State<HomePage> {
         ],
         child: coreScaffold(Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [blocIp(), blocLastIp()])));
+            children: [blocIp(), blocLastIp(), widgetDeveloperInfo()])));
   }
 }
 
