@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:my_ip_test/core/extensions/extension_last_ip_model.dart';
+import 'package:my_ip_test/features/home/domain/entities/last_ip_entity/last_ip_mapper.dart';
 import 'package:my_ip_test/features/home/domain/use_cases/get_last_ip_usecase.dart';
 import 'package:my_ip_test/features/home/presentation/manager/get_last_ip_cubit_state/get_last_ip_state.dart';
 
@@ -21,7 +23,7 @@ class GetLastIpCubit extends Cubit<GetLastIpState> {
       emit(GetLastIpState.error(l.toString()));
     }, (r) {
       appDebugPrint('--> Last Ip Success State Triggered');
-      appDebugPrint('Data: ${r.toString()}');
+      appDebugPrint('Data: ${r.mapper.toPrint}');
       emit(GetLastIpState.success(lastIpEntity: r));
     });
   }
