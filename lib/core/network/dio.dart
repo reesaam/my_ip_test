@@ -11,7 +11,7 @@ abstract class DioCore {
   Dio get dio => _getDio();
 
   _getDio() {
-    var dio = Dio(BaseOptions(baseUrl: AppURLs.apiBaseUrl));
+    var dio = Dio(BaseOptions(baseUrl: AppURLs.baseUrl));
     dio.options.headers.addAll( {
       AppTexts.dioHeaderContentType: AppTexts.dioHeaderContentTypeData,
       AppTexts.dioHeaderConnection: AppTexts.dioHeaderConnectionData,
@@ -21,5 +21,4 @@ abstract class DioCore {
     dio.options.sendTimeout = const Duration(seconds: 15);
     return dio;
   }
-
 }

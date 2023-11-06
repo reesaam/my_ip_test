@@ -3,14 +3,14 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../core/core_components/use_cases/use_case.dart';
 import '../../../../core/network/network_exception.dart';
-import '../entities/ip_entity.dart';
+import '../entities/ip_entity/ip_entity.dart';
 import '../repositories/ip_repository.dart';
 
 @injectable
-class IPUseCase implements UseCaseNoParams<NetworkException, IpEntity> {
-  final IPRepository repository;
+class IpUseCase implements UseCaseNoParams<NetworkException, IpEntity> {
+  final IpRepository repository;
 
-  IPUseCase({required this.repository});
+  IpUseCase({required this.repository});
 
   @override
   Future<Either<NetworkException, IpEntity>> call() async =>

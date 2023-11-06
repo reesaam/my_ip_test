@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:my_ip_test/core/dependency_injection/di.config.dart';
+import 'package:my_ip_test/core/core_functions.dart';
+import 'package:my_ip_test/data/storage/local_storage_module.dart';
 import 'core/app_info.dart';
 import 'core/app_router/app_router.dart';
 import 'core/dependency_injection/di.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  diCore.init;
+  await initLocalStorage();
+  initDependencyInjection();
+  appDebugPrint('Dependency Injection Initialization Completed.');
+  await diCore.allReady();
   runApp(const MainApp());
 }
 
